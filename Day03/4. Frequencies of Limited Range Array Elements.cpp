@@ -57,9 +57,20 @@ using namespace std;
 class Solution{
     public:
     //Function to count the frequency of all elements from 1 to N in the array.
-    void frequencyCount(vector<int>& arr,int N, int P)
+    vector<int> frequencyCount(vector<int> &arr,int N,int P)
     { 
-        // code here
+        vector<int> temp(P);
+        int i,j;
+        for(i=0;i<P;i++)
+            temp[i]=0;
+        for(i=0;i<N;i++)
+        {
+            for(j=1;j<=P;j++)
+                if(arr[i]==j)
+                    temp[j-1]++;
+        }
+        
+        return temp;
     }
 };
 
@@ -88,11 +99,11 @@ int main()
         cin >> P;
         Solution ob;
         //calling frequncycount() function
-		ob.frequencyCount(arr, N, P); 
+		 vector<int> a=ob.frequencyCount(arr, N,P);
 		
 		//printing array elements
-	    for (int i = 0; i < N ; i++) 
-			cout << arr[i] << " ";
+	    for (int i = 0; i < P ; i++) 
+			cout << a[i] << " ";
 	    cout << endl;
 	}	
 	return 0; 
