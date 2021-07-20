@@ -44,7 +44,17 @@ public:
 	// string.
 	// The function accepts a vector of strings
 	string printLargest(vector<string> &arr) {
-	    // code here
+	    int k=0,n;
+	    n=arr.size();
+            string temp;
+            while(k<n)
+            {
+               string x=temp+arr[k];
+               string y=arr[k]+temp;
+               temp=x.compare(y)>0?x:y;
+               k++;
+            };
+            return temp;
 	}
 };
 
